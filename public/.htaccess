@@ -1,0 +1,38 @@
+# ── SPA routing ───────────────────────────────────────────────────────────────
+# All requests that don't match a real file fall through to index.html
+# (React handles client-side routing from there)
+
+Options -MultiViews
+RewriteEngine On
+
+# Route /api/yahoo/* to the PHP proxy (handles Yahoo Finance CORS in production)
+RewriteCond %{REQUEST_URI} ^/api/yahoo/
+RewriteRule ^api/yahoo/.*$ api/yahoo/index.php [QSA,L]
+
+# Route /api/yahoo2/* to the same proxy (query2 host)
+RewriteCond %{REQUEST_URI} ^/api/yahoo2/
+RewriteRule ^api/yahoo2/.*$ api/yahoo/index.php [QSA,L]
+
+# SPA catch-all: serve index.html for everything else that isn't a real file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QL]
+
+# ── Security headers ──────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Cache static assets ───────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Hashed JS/CSS files: 1 year (Vite adds content hash to filenames)
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  # index.html: no cache (so new deploys are picked up immediately)
+  <Files "index.html">
+    ExpiresDefault "access plus 0 seconds"
+    Header always set Cache-Control "no-store, no-cache, must-revalidate"
+  </Files>
+</IfModule>

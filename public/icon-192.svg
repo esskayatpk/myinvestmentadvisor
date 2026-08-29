@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="192" y2="192" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <!-- App shell background -->
+  <rect width="192" height="192" rx="38" fill="#111827"/>
+  <!-- Gradient badge -->
+  <rect x="16" y="16" width="160" height="160" rx="28" fill="url(#grad)"/>
+  <!-- TrendingUp chart line -->
+  <polyline points="32,132 72,88 100,112 160,52"
+    stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Arrow tip -->
+  <polyline points="132,44 160,52 152,80"
+    stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

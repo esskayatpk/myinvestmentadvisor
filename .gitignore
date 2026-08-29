@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+ibkr-sync/node_modules/
+
+# Build output
+dist/
+
+# Environment — contains API keys and Supabase credentials, never commit
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
