@@ -1090,7 +1090,7 @@ export function PositionMonitor({ openEntries, onClose }: MonitorProps) {
 
       {/* Disclaimer */}
       <p className="text-[10px] text-gray-700 text-center pt-2">
-        Prices are delayed/cached. Always verify with your broker before acting. This is for educational purposes — not financial advice.
+        Prices are delayed/cached. Always verify with your broker before acting. This is not financial advice.
       </p>
     </div>
   );

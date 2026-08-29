@@ -164,7 +164,6 @@ export default function App() {
             </button>
           )}
 
-          {/* Install PWA button — only shows when browser supports it and app isn't installed */}
           {installPrompt && !installed && (
             <button
               onClick={handleInstall}
@@ -175,11 +174,6 @@ export default function App() {
               Install App
             </button>
           )}
-
-          {/* Disclaimer chip */}
-          <div className="hidden lg:block shrink-0 text-xs text-gray-600 border border-gray-800 rounded-full px-3 py-1">
-            Educational use only — not financial advice
-          </div>
         </div>
 
         {/* ── Tab bar ── */}
@@ -224,7 +218,7 @@ export default function App() {
 
       {/* ── Footer ── */}
       <footer className="border-t border-gray-900 py-3 text-center text-xs text-gray-700">
-        My Investment Advisor · Informational &amp; educational purposes only · Not registered investment advice
+        My Investment Advisor · Informational &amp; purposes only · Not registered investment advice
         · Always verify data with your broker
       </footer>
 
